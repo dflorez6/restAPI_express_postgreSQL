@@ -2,12 +2,12 @@
 // Routes
 //====================
 // Import the dependencies
-const session = require('./session');
-const user = require('./user');
-const message = require('./message');
+import session from './session.js';
+import user from './user.js';
+import message from './message.js';
 
 // Export
-module.exports = {
+export default {
     session,
     user,
     message

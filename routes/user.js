@@ -2,8 +2,8 @@
 // User Routes
 //====================
 // Import the dependencies
-const express = require('express')
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 //--------------------
 // GET
@@ -11,16 +11,23 @@ const router = express.Router();
 // Index
 router.get('/', 
     // Return Function
-    (req, res) => {
-        return res.send(Object.values(req.context.models.users)); // Returns the object values from the Models
+    async (req, res) => {
+        // Retrieves all Users from DB
+        const users = await req.context.models.User.findAll();
+        // Returns all users
+        return res.send(users);
     }
 );
 
 // Show
 router.get('/:userId',
     // Return Function
-    (req, res) => {
-        return res.send(req.context.models.users[req.params.userId]); // Returns a specific user depending on the userId from the URI
+    async (req, res) => {
+        // Retrieves User from DB by id
+        const user = await req.context.models.User.findByPk(
+            req.params.userId
+        ); // Finds user by PrimaryKey ('id')
+        return res.send(user);
     }
 );
 
@@ -58,4 +65,4 @@ router.delete('/:userId',
 );
 
 // Export Module (export the router NOT as an object inside { })
-module.exports = router;
+export default router;

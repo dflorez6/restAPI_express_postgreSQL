@@ -1,8 +1,16 @@
-# README | API REST with Node & Express + postgreSQL
+# README | API REST with Node & Express + postgreSQL (ES6)
 
 ## Express (Web Server)
 * To install express, from the console:
     > npm install express
+
+* To make it work with ES6 import/export modules, go to package.json and add the following:
+
+        "type": "module"
+
+* Also add the following inside scripts { }:
+
+        "start": "node --experimental-specifier-resolution=node index",
 
 ## ENV Variables (dotenv)
 https://www.youtube.com/watch?v=PxshhOKNPpQ
