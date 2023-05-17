@@ -14,6 +14,8 @@ router.get('/',
     async (req, res) => {
         // Retrieves all Messages from DB
         const messages = await req.context.models.Message.findAll();
+
+        // Returns all Messages
         return res.send(messages);
     }
 );
@@ -26,6 +28,8 @@ router.get('/:messageId',
         const message = await req.context.models.Message.findByPk(
             req.params.messageId
         ); // Finds user by PrimaryKey ('id')
+
+        // Returns Message by messageId passed as param on the URL
         return res.send(message);
     }
 );

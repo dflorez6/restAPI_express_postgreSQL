@@ -25,5 +25,5 @@ router.get('/',
     }
 );
 
-// Export Module (export the router NOT as an object inside { })
+// Export Module
 export default router;

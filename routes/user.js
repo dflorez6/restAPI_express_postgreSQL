@@ -14,7 +14,8 @@ router.get('/',
     async (req, res) => {
         // Retrieves all Users from DB
         const users = await req.context.models.User.findAll();
-        // Returns all users
+        
+        // Returns all Users
         return res.send(users);
     }
 );
@@ -27,6 +28,8 @@ router.get('/:userId',
         const user = await req.context.models.User.findByPk(
             req.params.userId
         ); // Finds user by PrimaryKey ('id')
+
+        // Returns User by userId passed as param on the URL
         return res.send(user);
     }
 );
